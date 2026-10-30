@@ -1,0 +1,9 @@
+results*/
+analysis*/
+final_*/
+*.pcap
+*.pcapng
+__pycache__/
+*.pyc
+*.avant_patch*
+*.bak_tz

@@ -1,0 +1,3 @@
+ids,runs,window_seconds,total_windows,fp,tn,fpr,fpr_percent,total_alerts,excluded_sids
+snort,3,1,1815,0,1815,0.0,0.0,0,1000001
+suricata,3,1,1815,0,1815,0.0,0.0,0,1000001

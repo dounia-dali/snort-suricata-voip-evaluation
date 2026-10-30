@@ -1,0 +1,29 @@
+
+# LOCAL RULES
+# ----------------
+# This file intentionally does not come with signatures.  Put your local
+# additions here.
+
+
+# ICMP 
+# alert icmp any any -> $HOME_NET any (msg:"ICMP Traffic Detected"; sid:1000001; rev:1;)
+
+
+# SIP scan
+alert udp any any -> $HOME_NET 5060 (msg:"SIP OPTIONS Scan Detected"; content:"OPTIONS sip:"; nocase; threshold:type both, track by_src, count 5, seconds 10; sid:1000003; rev:3;)
+
+
+# SIP REGISTER brute force
+alert udp any any -> $HOME_NET 5060 (msg:"SIP REGISTER Brute Force Detected"; content:"REGISTER sip:"; nocase; threshold:type both, track by_src, count 10, seconds 60; sid:1000005; rev:2;)
+
+
+# SIP INVITE flood
+alert udp any any -> $HOME_NET 5060 (msg:"SIP INVITE Flood Detected"; content:"INVITE sip:"; nocase; threshold:type both, track by_src, count 80, seconds 10; sid:1000006; rev:4;)
+
+
+# RTP flood
+alert udp any any -> $HOME_NET 10000:20000 (msg:"RTP Flood Detected"; dsize:>0; detection_filter:track by_src, count 80, seconds 5; sid:1000007; rev:10;)
+
+# SIP spoofing 
+alert udp any any -> $HOME_NET 5060 (msg:"SIP Spoofing Attempt Detected"; content:"INVITE sip:"; nocase; content:"Via|3A| SIP/2.0/UDP"; nocase; pcre:"/Via:\s*SIP\/2\.0\/UDP\s+([0-9]{1,3}\.){3}[0-9]{1,3}/i"; threshold:type both, track by_src, count 10, seconds 10; sid:1000008; rev:3;)
+
