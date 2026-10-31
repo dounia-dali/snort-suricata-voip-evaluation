@@ -38,7 +38,7 @@ Tshark 4.2.2, SIPp 3.7.2 (host) and SIPp 3.3-beta1 (attacker VM), Python 3.12.3 
 - Passwords of the laboratory accounts are replaced by `CHANGE_ME`.
 - The analysis reads the time zone of each run from `metadata.json`, so results can be re-analyzed on a machine with a different time zone.
 - The benign campaign (Table III) was produced earlier with the scripts of `legacy_benign_campaign/`.
-- Raw packet captures are archived separately: [Zenodo DOI].
+- Raw experimental data are archived separately on Zenodo: https://doi.org/10.5281/zenodo.23811199
 
 ## License
 Code: MIT (see `LICENSE`).
